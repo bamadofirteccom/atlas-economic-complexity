@@ -1,0 +1,16 @@
+Country:
+Lista de Paises y Continentes (Peru = , Sudamerica = 257)
+La columna "level" indica si se trata de un Paìs o una Regiòn, siendo sus valores country y region respectivamente.
+
+Location:
+Lista de Lugares 
+La columna "level" indica si se trata de un Paìs, Departamento o Provincia, siendo sus valores country, department y msa respectivamente.
+
+Product: 
+Lista de Productos
+SELECT * FROM "product" WHERE id = 891
+
+Product_year:
+Muestra la cantidad de exportaciòn total de un producto por año
+SELECT * FROM "product_year" WHERE product_id = 891
+
