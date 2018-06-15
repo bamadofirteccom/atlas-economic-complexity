@@ -1,16 +1,69 @@
-Country:
-Lista de Paises y Continentes (Peru = , Sudamerica = 257)
-La columna "level" indica si se trata de un Paìs o una Regiòn, siendo sus valores country y region respectivamente.
-
 Location:
 Lista de Lugares 
 La columna "level" indica si se trata de un Paìs, Departamento o Provincia, siendo sus valores country, department y msa respectivamente.
+
+Country:
+Lista de Paises y Continentes (Peru = , Sudamerica = 257)
+La columna "level" indica si se trata de un Paìs o una Regiòn(Continente), siendo sus valores country y region respectivamente.
 
 Product: 
 Lista de Productos
 SELECT * FROM "product" WHERE id = 891
 
+Country_product_year:
+Lista Valor de exportaciòn (export_value), Ventaja competitiva(export_rca), Densidad(Density), Valor Estrategico (cog) de un producto por año.
+
 Product_year:
-Muestra la cantidad de exportaciòn total de un producto por año
+Muestra Valor de exportaciòn (export_value), Indice de complejidad (pci) de un producto por año
 SELECT * FROM "product_year" WHERE product_id = 891
 
+Department_year:
+Muestra Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI), GDP y Poblaciòn (population) por departamento por año.
+SELECT * FROM "department_year" WHERE location_id=1 and year = 2007
+
+Msa_year:
+
+
+
+Country_country_year:
+Muestra Valor de exportaciòn (export_value), (REVISAR -- VALORES NO COINCIDEN)
+
+
+/**************************************************************************/
+Listado de Tablas:
+
+TABLAS USADAS:
+*************
+location
+country
+product
+---------------------
+country_product_year
+product_year
+department_year
+msa_year
+
+country_department_product_year
+country_department_year
+country_msa_product_year
+country_msa_year
+department_product_year
+msa_product_year
+
+partner_product_year
+country_country_year
+
+TABLAS VACÌAS:
+*******************
+country_municipality_product_year
+country_municipality_year
+country_industry_year
+industry
+industry_year
+msa_industry_year
+municipality_industry_year
+department_industry_year
+municipality_product_year
+occupation
+occupation_industry_year
+occupation_year
