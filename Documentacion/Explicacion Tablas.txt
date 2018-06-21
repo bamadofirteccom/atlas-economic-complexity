@@ -10,7 +10,7 @@ Product:
 Lista de Productos
 SELECT * FROM "product" WHERE id = 891
 
-Country_product_year:
+country_product_year:
 Lista Valor de exportaciòn (export_value), Ventaja competitiva(export_rca), Densidad(Density), Valor Estrategico (cog) de un producto por año.
 
 Product_year:
@@ -22,11 +22,34 @@ Muestra Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI
 SELECT * FROM "department_year" WHERE location_id=1 and year = 2007
 
 Msa_year:
+Muestra Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI) de una provincia por año.
 
+department_product_year:
+Muestra el valor de exportaciòn, valor de importaciòn, la densidad, el Valor Estrategico (cog) de un producto por departamento por año.
+SELECT * FROM "department_product_year" WHERE product_id = 891 and year = 2014;
 
+country_department_product_year:
+Muestra el valor de exportaciòn de un producto por departamento por año.
+
+country_department_year:
+Muestra el valor de exportaciòn de un departamento por año.
+
+msa_product_year:
+Muestra el valor de exportaciòn, valor de importaciòn, la densidad, el Valor Estrategico (cog) de un producto por provincia por año.
+SELECT * FROM "msa_product_year" WHERE product_id = 891 and year = 2014;
+
+country_msa_product_year:
+Muestra el valor de exportaciòn de un producto por provincia por pais por año.
+
+country_msa_year:
+Muestra el valor de exportaciòn de una provincia por pais por año.
 
 Country_country_year:
-Muestra Valor de exportaciòn (export_value), (REVISAR -- VALORES NO COINCIDEN)
+Muestra Valor de exportaciòn (export_value) por paìs por año.
+
+partner_product_year:
+Muestra valor de exportaciòn de un producto por paìs por año.
+
 
 
 /**************************************************************************/
@@ -42,16 +65,15 @@ country_product_year
 product_year
 department_year
 msa_year
-
+department_product_year
 country_department_product_year
 country_department_year
+msa_product_year
 country_msa_product_year
 country_msa_year
-department_product_year
-msa_product_year
-
-partner_product_year
 country_country_year
+partner_product_year
+
 
 TABLAS VACÌAS:
 *******************
