@@ -26,6 +26,13 @@ COINCIDE CON INFORMACIÒN:
 http://acomplexperu.concytec.gob.pe/#/product/891/source/departments/visualization/geo/export_value?endDate=2014&startDate=2014
 
 
+partner_product_year: (EXPORT_VALUE)
+Muestra valor de exportaciòn de un producto hacia un paìs extranjero por año.
+SELECT * FROM "partner_product_year" WHERE country_id = 41 and year = 2014 and product_id = 891
+COINCIDE CON INFORMACIÒN:
+http://acomplexperu.concytec.gob.pe/#/product/891/source/partners/visualization/treemap/export_value?endDate=2014&search=&startDate=2014
+
+
 ************************************************************************************
 ************************************************************************************
 
@@ -59,9 +66,6 @@ Muestra el valor de exportaciòn de una provincia por pais por año.
 
 Country_country_year:
 Muestra Valor de exportaciòn (export_value) por paìs por año.
-
-partner_product_year:
-Muestra valor de exportaciòn de un producto por paìs por año.
 
 
 
