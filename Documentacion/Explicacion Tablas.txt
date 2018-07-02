@@ -1,8 +1,8 @@
 Location:
-Lista de Lugares 
+Lista de Lugares (SOLO A NIVEL DE PERÙ)
 La columna "level" indica si se trata de un Paìs, Departamento o Provincia, siendo sus valores country, department y msa respectivamente.
 
-Country:
+Country: (INCLUYE OTROS PAISES Y CONTINENTES)
 Lista de Paises y Continentes (Peru = , Sudamerica = 257)
 La columna "level" indica si se trata de un Paìs o una Regiòn(Continente), siendo sus valores country y region respectivamente.
 
@@ -10,12 +10,25 @@ Product:
 Lista de Productos
 SELECT * FROM "product" WHERE id = 891
 
-country_product_year:
-Lista Valor de exportaciòn (export_value), Ventaja competitiva(export_rca), Densidad(Density), Valor Estrategico (cog) de un producto por año.
+************************************************************************************
+************************************************************************************
 
-Product_year:
+Product_year: (EXPORT_VALUE, PCI)
 Muestra Valor de exportaciòn (export_value), Indice de complejidad (pci) de un producto por año
 SELECT * FROM "product_year" WHERE product_id = 891
+COINCIDE CON INFORMACIÒN:
+http://acomplexperu.concytec.gob.pe/#/product/891/source/departments/visualization/geo/export_value?endDate=2014&startDate=2014
+
+
+country_product_year:  (EXPORT_VALUE, RCA, DENSITY, COG)
+Lista Valor de exportaciòn (export_value), Ventaja competitiva(export_rca), Densidad(Density), Valor Estrategico (cog) de un producto por año.
+COINCIDE CON INFORMACIÒN:
+http://acomplexperu.concytec.gob.pe/#/product/891/source/departments/visualization/geo/export_value?endDate=2014&startDate=2014
+
+
+************************************************************************************
+************************************************************************************
+
 
 Department_year:
 Muestra Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI), GDP y Poblaciòn (population) por departamento por año.
