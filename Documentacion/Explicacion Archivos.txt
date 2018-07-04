@@ -1,0 +1,9 @@
+Provincia_exportacion_anio.xlsx
+---------------------------------------
+Graba los datos de valor de exportación, valor de importación en la tabla country_msa_year
+
+
+Provincia_exportacion_anio_producto
+---------------------------------------
+Graba los datos de valor de exportación, valor de importación, densidad, rca, cog en la tabla msa_product_year
+

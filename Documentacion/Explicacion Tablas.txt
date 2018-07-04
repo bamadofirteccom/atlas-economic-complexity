@@ -36,33 +36,47 @@ http://acomplexperu.concytec.gob.pe/#/product/891/source/partners/visualization/
 ************************************************************************************
 ************************************************************************************
 
+country_msa_year:
+Muestra el valor de exportación e importación de una provincia hacia un pais por año. (incluye envíos a otros países)
+
+msa_product_year:
+Muestra el valor de exportaciòn, valor de importaciòn, la densidad, el Valor Estrategico (cog) y  ventaja comparativa revelada (RCA) de una provincia por producto año.
+(en esta tabla no se coloca el destino de exportación, solo el valor general)
+
+
+SELECT * FROM "msa_product_year" WHERE product_id = 891 and year = 2014;
+
+Msa_year:
+Muestra Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI) de una provincia por año.
+
+country_msa_product_year:
+Muestra el valor de exportaciòn de un producto por provincia por pais por año.
+
+msa_industry_year:
+Tabla vacía..
+
+
+
+
+country_department_product_year:
+Muestra el valor de exportaciòn de un producto por departamento por año.
+
 
 Department_year:
 Muestra Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI), GDP y Poblaciòn (population) por departamento por año.
 SELECT * FROM "department_year" WHERE location_id=1 and year = 2007
 
-Msa_year:
-Muestra Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI) de una provincia por año.
 
 department_product_year:
 Muestra el valor de exportaciòn, valor de importaciòn, la densidad, el Valor Estrategico (cog) de un producto por departamento por año.
 SELECT * FROM "department_product_year" WHERE product_id = 891 and year = 2014;
 
-country_department_product_year:
-Muestra el valor de exportaciòn de un producto por departamento por año.
+
 
 country_department_year:
 Muestra el valor de exportaciòn de un departamento por año.
 
-msa_product_year:
-Muestra el valor de exportaciòn, valor de importaciòn, la densidad, el Valor Estrategico (cog) de un producto por provincia por año.
-SELECT * FROM "msa_product_year" WHERE product_id = 891 and year = 2014;
 
-country_msa_product_year:
-Muestra el valor de exportaciòn de un producto por provincia por pais por año.
-
-country_msa_year:
-Muestra el valor de exportaciòn de una provincia por pais por año.
 
 Country_country_year:
 Muestra Valor de exportaciòn (export_value) por paìs por año.
