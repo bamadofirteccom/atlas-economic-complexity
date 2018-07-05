@@ -36,24 +36,29 @@ http://acomplexperu.concytec.gob.pe/#/product/891/source/partners/visualization/
 ************************************************************************************
 ************************************************************************************
 
+
+country_msa_product_year:
+Muestra el valor de exportaciòn y valor de importaciòn de un producto por provincia por pais por año.
+Plantilla 1 : Provincia_exportacion_producto_pais_anio.xlsx
+
 country_msa_year:
-Muestra el valor de exportación e importación de una provincia hacia un pais por año. (incluye envíos a otros países)
+Muestra el valor de exportación e importación de una provincia hacia un pais por año.
+Plantilla 2: Provincia_exportacion_anio.xlsx
+Nota: Se podrìa llenar usando la plantilla 1 : Provincia_exportacion_producto_pais_anio.xlsx
 
 msa_product_year:
-Muestra el valor de exportaciòn, valor de importaciòn, la densidad, el Valor Estrategico (cog) y  ventaja comparativa revelada (RCA) de una provincia por producto año.
-(en esta tabla no se coloca el destino de exportación, solo el valor general)
-
-
-SELECT * FROM "msa_product_year" WHERE product_id = 891 and year = 2014;
+Muestra el valor de exportaciòn, valor de importaciòn, la densidad, el Valor Estrategico (cog) y  ventaja comparativa revelada (RCA) de un producto por provincia por año.
+Plantilla 3: Provincia_exportacion_anio_producto.xlsx
 
 Msa_year:
 Muestra Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI) de una provincia por año.
-
-country_msa_product_year:
-Muestra el valor de exportaciòn de un producto por provincia por pais por año.
+Plantilla 4: Provincia_anio.xlsx
 
 msa_industry_year:
 Tabla vacía..
+
+
+
 
 
 
@@ -72,10 +77,8 @@ Muestra el valor de exportaciòn, valor de importaciòn, la densidad, el Valor E
 SELECT * FROM "department_product_year" WHERE product_id = 891 and year = 2014;
 
 
-
 country_department_year:
 Muestra el valor de exportaciòn de un departamento por año.
-
 
 
 Country_country_year:
@@ -120,3 +123,15 @@ municipality_product_year
 occupation
 occupation_industry_year
 occupation_year
+
+
+
+/*********************************************/
+
+SELECT * FROM "country_msa_product_year" WHERE location_id = 30 and year = 2014
+
+SELECT * FROM "country_msa_year" WHERE location_id = 30 and year = 2014
+
+SELECT * FROM "msa_product_year" WHERE location_id = 30 and year = 2014 and export_value > 0
+
+SELECT * FROM "msa_year" WHERE location_id = 30 and year = 2014
