@@ -599,3 +599,21 @@ CREATE TABLE occupation_industry_year (
 ----
 -- Data dump for occupation_industry_year, a total of 0 rows
 ----
+
+
+
+
+
+----
+-- Table structure for user
+----
+
+CREATE TABLE user (
+	id_user INTEGER NOT NULL, 
+	usuario VARCHAR(20), 
+	password VARCHAR(50), 
+	rol TEXT,
+	PRIMARY KEY (id_user)
+);
+
+INSERT INTO "user" ("id_user","usuario","password","rol") VALUES ('1','eamadom2','12345','1')
