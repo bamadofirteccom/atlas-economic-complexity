@@ -23,16 +23,6 @@ class Usuario extends CI_Controller {
 		}
 	}
 
-	public function cargarArchivos(){
-		$usuario_login = $this->session->userdata('sesion_usuario');
-		if( !isset($usuario_login) ){
-			$this->index();
-		}else{
-			$this->load->view('backend/cargarArchivos');
-		}
-	}
-
-
 	public function iniciarSesion(){
 		$usuario = $this->input->post('txtuser');
 		$clave = $this->input->post('txtpassword');
