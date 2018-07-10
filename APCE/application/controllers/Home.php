@@ -15,10 +15,14 @@ class Home extends CI_Controller {
 
 	public function index(){
 		$usuario_login = $this->session->userdata('sesion_usuario');
+
 		if( !isset($usuario_login) ){
+			$this->load->view('frontend/header');
 			$this->load->view('frontend/login');
+			$this->load->view('frontend/footer');
+
 		}else{
-			$this->load->view('frontend/principal');
+			redirect('/datos');
 		}
 	}
 

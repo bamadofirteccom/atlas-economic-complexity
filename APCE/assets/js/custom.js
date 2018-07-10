@@ -6,7 +6,7 @@ $("#formInicioSesion").submit(function(e){
 });
 
 
-$('body').on("click","#submit-message",function(){
+$('body').on("click","#submit-login",function(){
 
 
     $.post(
@@ -16,10 +16,14 @@ $('body').on("click","#submit-message",function(){
 
                 if(data.status=='success'){
                     toastr.success(data.msj, 'Exito!');
+
+                    setTimeout(function(){ 
+                        window.location.href = base_url+"datos";
+
+                    }, 1000);
+
                 }else{
-                    
                     toastr.warning(data.msj, 'Error!');
-          
                 }
             },
         'json'

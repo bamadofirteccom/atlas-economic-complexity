@@ -17,9 +17,9 @@ class Usuario extends CI_Controller {
 
 		$usuario_login = $this->session->userdata('sesion_usuario');
 		if( !isset($usuario_login) ){
-			$this->load->view('frontend/login');
+			redirect('/home');
 		}else{
-			$this->load->view('frontend/principal');
+			redirect('/datos');
 		}
 	}
 
