@@ -1,17 +1,26 @@
-<!doctype>
 <html>
 <head>
+    <title>Success Message</title>
 </head>
 <body>
-<?php
-require_once "PHPExcel/Classes/PHPExcel.php";
-		$tmpfname = "plantillas/Provincia_exportacion_anio_producto.xlsx";
+
+
+<h3>Archivo Cargado Satisfactoriamente</h3>
+
+	<?php 
+		$tmpfname = "./uploads/".$upload_data['orig_name'];
 		$excelReader = PHPExcel_IOFactory::createReaderForFile($tmpfname);
 		$excelObj = $excelReader->load($tmpfname);
 		$worksheet = $excelObj->getSheet(0);
 		$lastRow = $worksheet->getHighestRow();
+
+		$highestColumn = $worksheet->getHighestColumn();
+
+		for ($row = 1; $row <= $lastRow; $row++) {
+			
+		}
 		
-		echo "<table>";
+		/*echo "<table>";
 		for ($row = 1; $row <= $lastRow; $row++) {
 
 			 echo "<tr><td>";
@@ -38,8 +47,11 @@ require_once "PHPExcel/Classes/PHPExcel.php";
 			 echo $worksheet->getCell('K'.$row)->getValue();
 
 		}
-		echo "</table>";	
+		echo "</table>";*/
+
+
 ?>
+
 
 </body>
 </html>

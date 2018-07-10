@@ -22,7 +22,7 @@ $subdirectories = false;
 //if any of the databases do not exist as they are referenced by their path, they will be created automatically
 $databases = array(
 	array(
-		'path'=> 'database_backup_original.db',
+		'path'=> 'C:/xampp/htdocs/APCE/application/database/database_backup_original.db',
 		'name'=> 'Atlas'
 	),
 	array(

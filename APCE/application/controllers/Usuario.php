@@ -31,7 +31,7 @@ class Usuario extends CI_Controller {
 
 
 		$session_data = array(
-					'idusuario' => $res[0]->id_user,
+					'idusuario' => $res[0]->idusuario,
 					'usuario' => $res[0]->usuario,
 					'rol' => $res[0]->rol
 				);
