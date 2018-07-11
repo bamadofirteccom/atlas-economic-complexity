@@ -19384,3 +19384,8 @@ a.thumbnail.active {
     margin: auto;
     margin-top: 2%;
 }
+
+.btns #submit-login {
+    padding-top: 3px;
+    padding-bottom: 4px;
+}

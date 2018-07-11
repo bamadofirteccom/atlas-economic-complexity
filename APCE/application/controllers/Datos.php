@@ -20,7 +20,7 @@ class Datos extends CI_Controller {
 		$this->cargarArchivos();
 	}
 
-	public function cargarArchivos(){
+	public function cargarArchivos($msg=''){
 		
 		$usuario_login = $this->session->userdata('sesion_usuario');
 
@@ -29,7 +29,7 @@ class Datos extends CI_Controller {
 		}else{
 
 			$this->load->view('frontend/header');
-			$this->load->view('backend/cargarArchivos', array('error' => ' ' ));
+			$this->load->view('backend/cargarArchivos', array('error' => ' ', 'msg' => $msg ));
 			$this->load->view('frontend/footer');
 		}
 		
@@ -42,45 +42,102 @@ class Datos extends CI_Controller {
 	}
 
 	public function do_upload(){
-		$usuario_login = $this->session->userdata('sesion_usuario');
+		$this->load->library('form_validation');
+		
+	    /*if ($this->form_validation->run('selPlantilla') == '0') {
+	    	$msg = 'Debe seleccionar una plantilla';
+	        $this->cargarArchivos($msg);
+	    }*/
 
-		if( !isset($usuario_login) ){
-			redirect('/home');
-		}else{
+			$usuario_login = $this->session->userdata('sesion_usuario');
+			$plantilla = $this->input->post('selPlantilla');
 
-			$data_head = array('sesion'=>true);
+			if( !isset($usuario_login) ){
+				redirect('/home');
+			}else{
 
-			$config = array(
-			'upload_path' => "./uploads/",
-			'allowed_types' => "gif|jpg|png|jpeg|pdf|xlsx|xls",
-			'overwrite' => TRUE,
-			'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-			'max_height' => "768",
-			'max_width' => "1024"
-			);
+				$config = array(
+				'upload_path' => "./uploads/",
+				'allowed_types' => "gif|jpg|png|jpeg|pdf|xlsx|xls",
+				'overwrite' => TRUE,
+				'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+				'max_height' => "768",
+				'max_width' => "1024"
+				);
 
-			$this->load->library('upload', $config);
+				$this->load->library('upload', $config);
 
-			if($this->upload->do_upload()){
+				if($this->upload->do_upload()){
 
-				$data = array('upload_data' => $this->upload->data());
+					$data = array('upload_data' => $this->upload->data());
 
-				$tmpfname = "./uploads/".$data['upload_data']['orig_name'];
-				$excelReader = PHPExcel_IOFactory::createReaderForFile($tmpfname);
-				$excelObj = $excelReader->load($tmpfname);
-				$worksheet = $excelObj->getSheet(0);
-				$lastRow = $worksheet->getHighestRow();
+					$tmpfname = "./uploads/".$data['upload_data']['orig_name'];
+					$excelReader = PHPExcel_IOFactory::createReaderForFile($tmpfname);
+					$excelObj = $excelReader->load($tmpfname);
+					$worksheet = $excelObj->getSheet(0);
+					$lastRow = $worksheet->getHighestRow();
+					$highestColumn = $worksheet->getHighestColumn();
+					$resultado = '';
 
-				$highestColumn = $worksheet->getHighestColumn();
+					/*$contador = 1; //para saber cuando llegamos a un chunk
+					$chunk_count = 0; // para saber cuantos chunks hay
+					$limite_chunk = 5;*/
 
-				$id = $this->datos_model->getLastId('1') + 1;
-				$resultado = '';
+					$data_insert = array();
+					$data_insert = $this->getArrayDatos($plantilla,$worksheet,$lastRow);
 
-				$contador = 1; //para saber cuando llegamos a un chunk
-				$chunk_count = 0; // para saber cuantos chunks hay
-				$limite_chunk = 5;
+					$res = $this->insertArrayDatos($plantilla,$data_insert);
+					
+					if($res){
+						$resultado.= 'Datos insertados correctamente.';
+						$status = 'success';
+					} else{
+						$resultado.= 'Error al insertar datos.';
+						$status = 'error';
+					}
 
-				$data_insert = array();
+					$data_res = array(
+					'status'=>$status,
+					'resultado'=>$resultado
+					);
+
+					$this->load->view('frontend/header');
+					$this->load->view('backend/procesarArchivos', $data_res);
+					$this->load->view('frontend/footer');
+					
+
+
+				}else{
+					$error = array('error' => $this->upload->display_errors());
+					$this->load->view('frontend/header');
+					$this->load->view('backend/cargarArchivos', $error);
+					$this->load->view('frontend/footer');
+					
+				}
+			}
+	}
+
+
+
+	public function insertArrayDatos($plantilla,$data_insert){
+		
+		switch ($plantilla) {
+			case '1':
+				$res = $this->datos_model->insertProvincia_Producto_Pais_Anio($data_insert);
+			break;
+		}
+
+		return $res;
+
+	}
+
+	public function getArrayDatos($plantilla,$worksheet,$lastRow){
+
+		$data_insert = array();
+		$id = $this->datos_model->getLastId($plantilla) + 1;
+
+		switch ($plantilla) {
+			case '1':
 
 				for ($row = 2; $row <= $lastRow; $row++) {
 
@@ -109,38 +166,12 @@ class Datos extends CI_Controller {
 
 				}
 
-				$res = $this->datos_model->insertProvincia_Producto_Pais_Anio($data_insert);
-				
-				if($res){
-					$resultado.= 'Datos insertados correctamente.';
-					$status = 'success';
-				} else{
-					$resultado.= 'Error al insertar datos.';
-					$status = 'error';
-				}
+			break;
+		} //fin del switch
 
-				$data_res = array(
-				'status'=>$status,
-				'resultado'=>$resultado
-				);
+		return $data_insert;
 
-				$this->load->view('frontend/header');
-				$this->load->view('backend/procesarArchivos', $data_res);
-				$this->load->view('frontend/footer');
-				
-
-
-			}else{
-				$error = array('error' => $this->upload->display_errors());
-				$this->load->view('frontend/header');
-				$this->load->view('backend/cargarArchivos', $error);
-				$this->load->view('frontend/footer');
-				
-			}
-		}
 	}
-
-
 
 
 }

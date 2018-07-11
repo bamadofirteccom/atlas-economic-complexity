@@ -9720,3 +9720,21 @@ form input[type="file"] {
 .pageheader__menu {
     float: right;
 }
+
+.row {
+    margin-bottom: 8px;
+}
+
+.row label {
+    font-size: 1.15em;
+}
+
+.msg-error {
+    background: #eb525d;
+    color: white;
+    width: auto;
+    padding: 2px 6px 2px 6px;
+    position: absolute;
+    top: 47%;
+    right: 37%;
+}

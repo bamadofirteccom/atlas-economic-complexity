@@ -5,6 +5,16 @@ $("#formInicioSesion").submit(function(e){
     e.preventDefault();
 });
 
+$('body').on("change","#selPlantilla",function(){
+    val = $(this).val();
+
+    if(val != 0){
+        $('.msg-error').css('display','none');
+    }else{
+        $('.msg-error').html('Debe seleccionar una plantilla');
+        $('.msg-error').css('display','block');
+    }
+});
 
 $('body').on("click","#submit-login",function(){
 

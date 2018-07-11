@@ -27,18 +27,18 @@ class Usuario extends CI_Controller {
 		$usuario = $this->input->post('txtuser');
 		$clave = $this->input->post('txtpassword');
 
-		$res = $this->usuario_model->iniciarSesion($usuario, $clave);
+		$res = $this->usuario_model->iniciarSesion($usuario, $clave);	
 
+		if($res){
 
-		$session_data = array(
+			$session_data = array(
 					'idusuario' => $res[0]->idusuario,
 					'usuario' => $res[0]->usuario,
 					'rol' => $res[0]->rol
 				);
 
-		$this->session->set_userdata('sesion_usuario', $session_data);
+			$this->session->set_userdata('sesion_usuario', $session_data);
 
-		if($res){
 			echo json_encode( array('status' => 'success', 'msj' => 'Inicio de Sesion correcto' ) );
 		} else{
 			echo json_encode( array('status' => 'error', 'msj' => 'Error al iniciar sesion' ) );
