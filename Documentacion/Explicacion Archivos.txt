@@ -1,4 +1,4 @@
-Provincia_exportacion_anio.xlsx
+Provincia_exportacion_anio.xlsx (2)
 ---------------------------------------
 * Descripcion: Graba los datos de valor de exportación, valor de importación en la tabla country_msa_year
 * Còmo verlo: Entrando a la opciòn "Destino", dentro del detalle de una provincia.
@@ -7,4 +7,45 @@ Provincia_exportacion_anio_producto
 ---------------------------------------
 * Descripcion: Graba los datos de valor de exportación, valor de importación, densidad, rca, cog en la tabla msa_product_year
 * Còmo verlo: Entrando a la opciòn "Destinos por productos", dentro del detalle de una provincia.
+
+Provincia_exportacion_producto_pais_anio (1)
+---------------------------------------
+* Descripcion: Graba los datos de valor de exportación, valor de importación en la tabla country_msa_product_year
+
+Provincia_anio.xlsx
+---------------------------------------
+* Descripcion: Graba los datos de valor de Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI) en la tabla msa_year
+
+Peru_exportacion_anio
+---------------------------------------
+* Descripcion: Graba los datos de valor de exportación, valor de importación de Perú a otros países por año en la tabla country_country_year
+
+Departamento_exportacion_anio
+---------------------------------------
+* Descripcion: Graba los datos de valor de exportación, valor de importación de un Departamento a un país por año en la tabla country_department_year
+
+Producto_anio.xlsx
+---------------------------------------
+* Descripcion: Graba los datos de valor de exportación, Índice de complejidad de producto (PCI) de un Producto por año en la tabla product_year }
+
+Departamento_exportacion_producto_pais_anio
+---------------------------------------
+* Descripcion: Graba los datos de valor de exportación, valor de importación en la tabla country_department_product_year
+
+Departamento_exportacion_anio_producto
+---------------------------------------
+* Descripcion: Graba los datos de valor de exportación, valor de importación, densidad, rca, cog en la tabla department_product_year
+
+Departamento_anio
+---------------------------------------
+* Descripcion: Graba los datos de valor de Ìndice de complejidad econòmica (ECI), Pronòstico de complejidad (COI), Producto Bruto Interno (GDP) Nominal,
+Producto Bruto Interno (GDP) Real, Producto Bruto Interno (GDP) pc Nominal, Producto Bruto Interno (GDP) pc Real y Población en la tabla Department_year
+
+Pais_exportacion_anio_producto
+---------------------------------------
+* Descripcion: Graba los datos de valor de exportación, valor de importación, densidad, rca, cog del Perú por año en la tabla country_product_year
+
+Partner_exportacion_anio_producto
+---------------------------------------
+* Descripcion: Graba los datos de valor de exportación, valor de importación de un producto a un país por año.
 
